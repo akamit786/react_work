@@ -5,8 +5,8 @@ function App() {
   const [numerallow, setnumallow] = useState(false);
   const [chrallow, setcharallow] = useState(false);
   const [pass, setpass] = useState("")
-//ref hook
-const passRef = useRef(null)
+  //ref hook
+  const passRef = useRef(null)
 
   const passgen = useCallback(() => {
     let pass = ""
@@ -20,12 +20,12 @@ const passRef = useRef(null)
     setpass(pass)
   },
     [length, numerallow, chrallow, setpass])
-const copypass = useCallback(() =>{
-  passRef.current?.select();
-  // passRef.current?.setSelectionRange(0,3);
-  window.navigator.clipboard.writeText(pass)
-},
-[pass])
+  const copypass = useCallback(() =>{
+    passRef.current?.select();
+    // passRef.current?.setSelectionRange(0,3);
+    window.navigator.clipboard.writeText(pass)
+  },
+    [pass])
   useEffect(() => { passgen() }, [length, numerallow, chrallow, passgen])
   return (
     <>
